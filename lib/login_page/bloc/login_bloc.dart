@@ -28,7 +28,10 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     );
 
     on<RedirectToDetailsPage>(
-        (event, emit) => emit(RedirectionState(event.userData)));
+      (event, emit) => emit(
+        RedirectionState(event.userData),
+      ),
+    );
 
     on<CheckUserSingIn>(
       (event, emit) async {
@@ -49,6 +52,12 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       },
     );
 
+    on<LoginWithMobile>(
+      (event, emit) => emit(
+        RedirectToMobileState(),
+      ),
+    );
+
     isUserSignIn();
   }
 
@@ -62,5 +71,9 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   isUserSignIn() {
     add(CheckUserSingIn());
+  }
+
+  loginWithMobile() {
+    add(LoginWithMobile());
   }
 }

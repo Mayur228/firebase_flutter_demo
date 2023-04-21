@@ -24,3 +24,7 @@ class RedirectionState extends LoginState {
   final UserData userData;
   RedirectionState(this.userData);
 }
+
+class RedirectToMobileState extends LoginState {
+  RedirectToMobileState();
+}

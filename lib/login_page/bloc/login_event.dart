@@ -19,3 +19,7 @@ class RedirectToDetailsPage extends LoginEvent {
 class CheckUserSingIn extends LoginEvent {
   CheckUserSingIn();
 }
+
+class LoginWithMobile extends LoginEvent {
+  LoginWithMobile();
+}

@@ -44,6 +44,8 @@ dependencies:
   flutter_bloc: ^8.1.2
   firebase_core: ^2.8.0
   shared_preferences: ^2.1.0
+  google_fonts: ^4.0.3
+  country_code_picker: ^3.0.0
 
 dev_dependencies:
   flutter_test:

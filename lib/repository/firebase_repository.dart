@@ -52,4 +52,28 @@ class FirebaseRepository {
       throw Exception(e);
     }
   }
+
+  Future<void> verifyPhone({
+  required String phoneNumber,
+  required Function(PhoneAuthCredential) verificationCompleted,
+  required Function(FirebaseAuthException) verificationFailed,
+  required Function(String, int?) codeSent,
+  required Function(String) codeAutoRetrievalTimeout,
+}) async {
+  await _firebaseAuth.verifyPhoneNumber(
+    phoneNumber: phoneNumber,
+    verificationCompleted: verificationCompleted,
+    verificationFailed: verificationFailed,
+    codeSent: codeSent,
+    codeAutoRetrievalTimeout: codeAutoRetrievalTimeout,
+  );
+}
+
+   Future<UserCredential> verifyAndLogin(
+      String verificationId, String smsCode) async {
+    AuthCredential authCredential = PhoneAuthProvider.credential(
+        verificationId: verificationId, smsCode: smsCode);
+
+    return _firebaseAuth.signInWithCredential(authCredential);
+  }
 }
