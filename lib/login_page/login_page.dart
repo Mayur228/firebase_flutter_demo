@@ -2,10 +2,12 @@ import 'package:firebase_demo_flutter/details_page/details_page.dart';
 import 'package:firebase_demo_flutter/login_page/bloc/login_bloc.dart';
 import 'package:firebase_demo_flutter/login_page/bloc/login_state.dart';
 import 'package:firebase_demo_flutter/mobile_login_page/mobile_login_page.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../di/injectable.dart';
+import '../services/firebase_notification_services.dart';
 
 class LoginPage extends StatelessWidget {
   LoginPage({Key? key}) : super(key: key);
@@ -13,6 +15,10 @@ class LoginPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final FirebaseNotificationService pushNotificationService =
+        getIt<FirebaseNotificationService>();
+    pushNotificationService.initialise();
+    pushNotificationService.setupInteractedMessage(context);
     return Scaffold(
         appBar: AppBar(
           title: const Text('Login'),

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "280276354646",
+    "firebase_url": "https://fir-demo-flutter-afaf9-default-rtdb.firebaseio.com",
     "project_id": "fir-demo-flutter-afaf9",
     "storage_bucket": "fir-demo-flutter-afaf9.appspot.com"
   },
